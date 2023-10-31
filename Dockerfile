@@ -12,7 +12,7 @@ RUN ls -la
 COPY app.py .
 COPY zipcode_demographics.csv .
 COPY model_features.json .
-COPY model.pkl .
+COPY gradient_boosted_model.pkl .
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
