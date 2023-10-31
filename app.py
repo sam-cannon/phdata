@@ -28,19 +28,16 @@ async def predict(file: UploadFile):
         contents = await file.read()
         df = pd.read_csv(io.StringIO(contents.decode('utf-8')))
 
-
         #merge our uploaded df into our demographic csv 
         df = df.merge(demo, on = 'zipcode')
 
         #order columns in df the same way as the data that was used to train the model
         df = df[features]
 
-        #convert df to JSON for model predictions
-        #input_data = df.to_dict(orient='records')
-
         # Make predictions using the loaded model
         predictions = model.predict(df)
 
+    #if error occurs, log and return the error to the command line
     except Exception as e:
         
         logging.error(f"Error in prediction: {str(e)}")
