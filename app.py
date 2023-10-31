@@ -9,7 +9,7 @@ import io
 app = FastAPI()
 
 # Load your trained machine learning model
-model = pickle.load(open('/Users/charlenehack/Desktop/Sam/fastapi_docker_ml/model.pkl', 'rb'))
+model = pickle.load(open('/Users/charlenehack/Desktop/Sam/fastapi_docker_ml/gradient_boosted_model.pkl', 'rb'))
 
 class Item(BaseModel):
     file: UploadFile
